@@ -8,19 +8,20 @@ class Field extends Component {
   }
 
   componentDidMount(){
-      this.context.registerFieldEntities(this)
+      this.unregisterFieldEntities=this.context.registerFieldEntities(this)
+  }
+
+  componentWillUnmount(){
+     this.unregisterFieldEntities();
   }
 
   getControlled = () => {
     const { getFieldValue,setFieldsValue } = this.context;
     const { name } = this.props;
-    console.log(name,getFieldValue(name))
     return {
       value: getFieldValue(name),
       onChange: (e) => {
         const newValue=e.target.value;
-        console.log('newValue',newValue);
-        console.log({[name]:newValue})
         setFieldsValue({[name]:newValue});
       },
     };

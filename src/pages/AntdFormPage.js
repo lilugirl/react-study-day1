@@ -26,7 +26,7 @@ export default function AntdFormPage(props) {
         <FormItem name="username" label="姓名" rules={[nameRules]}>
           <Input placeholder="用户名" />
         </FormItem>
-        <FormItem label="密码" name="passowrd" rules={[passwordRules]}>
+        <FormItem label="密码" name="password" rules={[passwordRules]}>
           <Input.Password placeholder="密码" />
         </FormItem>
         <FormItem>
