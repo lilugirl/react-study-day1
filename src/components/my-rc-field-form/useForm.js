@@ -92,12 +92,11 @@ class FormStore{
 export default function useForm(form){
      const formRef=useRef();
 
-    // 把getForm存起来 ，目的保证组件每次更新用的都是这个getForm
+    // 把getForm存起来 ，目的保证组件卸载前的每个生命周期用的都是这个getForm
     if(!formRef.current){
        if(form){    
            formRef.current=form
-       }else{
-       
+       }else{     
         const formStore=new FormStore()
         formRef.current=formStore.getForm();
        }
